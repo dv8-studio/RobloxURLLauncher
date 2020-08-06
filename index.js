@@ -29,3 +29,5 @@ for (const action in options) { // Iterate actions
 `
 window.document.body.appendChild(script)
 script.remove()
+
+setTimeout(() => chrome.runtime.sendMessage(1, () => {}), 3000) // Send message to close the tab after execution
