@@ -24,10 +24,13 @@ for (const action in options) { // Iterate actions
 	if (input.length !== data.length) continue // Not enough values, check next action
 	
 	Roblox.GameLauncher[action](...input) // Execute
+	document.body.classList.add('RBLX_URL_LAUNCHER_OPENED')
 	break
 }
 `
 window.document.body.appendChild(script)
 script.remove()
 
-setTimeout(() => chrome.runtime.sendMessage(1, () => {}), 3000) // Send message to close the tab after execution
+setTimeout(() => {
+	if (window.document.body.classList.contains('RBLX_URL_LAUNCHER_OPENED')) chrome.runtime.sendMessage(1, () => {}) // Send message to close the tab after execution
+}, 3000)
