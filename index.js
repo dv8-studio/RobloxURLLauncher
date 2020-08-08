@@ -24,7 +24,7 @@ for (const action in options) { // Iterate actions
 	if (input.length !== data.length) continue // Not enough values, check next action
 	
 	Roblox.GameLauncher[action](...input) // Execute
-	document.body.classList.add('RBLX_URL_LAUNCHER_OPENED')
+	if (!urlParams.get('dontClose')) document.body.classList.add('RBLX_URL_LAUNCHER_OPENED')
 	break
 }
 `
