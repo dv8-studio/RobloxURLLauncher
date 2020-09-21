@@ -1,12 +1,17 @@
 const script = document.createElement('script')
 script.textContent = `
+const currentUrl = window.location.href
 const urlParams = new URLSearchParams(window.location.search)
 const options = { // Setup all possible actions and specify require arguments
 	followPlayerIntoGame: ['followUserId'],
 	editGameInStudio: ['editPlaceId'],
-	joinGameInstance: ['placeId', 'gameId'],
-	joinPrivateGame: ['privatePlaceId', ['privateId'], ['code']],
+	joinGameInstance: [{param: 'placeId', regex: /\\/games\\/(\\d+)/}, 'gameId'],
+	joinPrivateGame: [{param: 'privatePlaceId', regex: /\\/games\\/(\\d+)/}, ['privateId'], ['code']],
 	joinMultiplayerGame: ['placeId']
+}
+
+const minimumParams = {
+	joinPrivateGame: 2
 }
 
 for (const action in options) { // Iterate actions
@@ -14,7 +19,18 @@ for (const action in options) { // Iterate actions
 	const input = []
 	for (const key of data) { // Fetches required parameters into table
 		const optional = Array.isArray(key)
-		const paramKey = optional ? key[0] : key
+		let paramKey = optional ? key[0] : key
+		if (!optional && typeof key === 'object') {
+			if (key.regex) {
+				const result = key.regex.exec(currentUrl)
+				if (result) {
+					input.push(result[1])
+					continue
+				}
+			}
+			paramKey = key.param
+		}
+		if (!paramKey) continue
 
 		const value = urlParams.get(paramKey)
 		if (value != null) { input.push(value)
@@ -22,6 +38,12 @@ for (const action in options) { // Iterate actions
 		}
 	}
 	if (input.length !== data.length) continue // Not enough values, check next action
+	
+	if (minimumParams[action]) {
+		let nonNullParams = 0
+		for (const param of input) if (param != null) nonNullParams += 1
+		if (nonNullParams < minimumParams[action]) continue // Not enough values, check next action
+	}
 	
 	Roblox.GameLauncher[action](...input) // Execute
 	if (!urlParams.get('dontClose')) document.body.classList.add('RBLX_URL_LAUNCHER_OPENED')
