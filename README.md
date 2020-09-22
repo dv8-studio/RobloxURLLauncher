@@ -1,5 +1,7 @@
 # Roblox URL Launcher
-Roblox URL Launcher is an extension which lets you join a game using link. It is available at Google Webstore ( https://chrome.google.com/webstore/detail/roblox-url-launcher/lcefjaknjehbafdeacjbjnfpfldjdlcc )
+Roblox URL Launcher is an extension which lets you join a game using link. It is available at
+- Google Webstore - https://chrome.google.com/webstore/detail/roblox-url-launcher/lcefjaknjehbafdeacjbjnfpfldjdlcc
+- Firefox Webstore - https://addons.mozilla.org/addon/roblox-url-launcher/
 
 Note: This extension was NOT made to bypass Roblox security. For instance - you won't be able to join game you don't have access to or join a player you can't follow into game (same if player is in game you don't have access to).
 
