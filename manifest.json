@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Roblox URL Launcher",
-  "version": "1.8",
+  "version": "1.9",
   "description": "Joins a game, specific server or opens studio basing on url parameters.",
   "permissions": [],
   "content_scripts": [

@@ -45,14 +45,32 @@ for (const action in options) { // Iterate actions
 		if (nonNullParams < minimumParams[action]) continue // Not enough values, check next action
 	}
 	
-	Roblox.GameLauncher[action](...input) // Execute
-	if (!urlParams.get('dontClose')) document.body.classList.add('RBLX_URL_LAUNCHER_OPENED')
+	let attempt = 0
+	const interval = setInterval(() => {
+		attempt += 1
+		try {
+			Roblox.GameLauncher[action](...input) // Execute
+			clearInterval(interval)
+			if (!urlParams.get('dontClose')) document.body.classList.add('RBLX_URL_LAUNCHER_OPENED')
+		} catch(e) {
+			console.log("Couldn't run the game - ", e)
+		}
+		if (attempt > 3) clearInterval(interval) // Stop if exceeded the limit of attempts
+	}, 1000)
 	break
 }
 `
 window.document.body.appendChild(script)
 script.remove()
 
-setTimeout(() => {
-	if (window.document.body.classList.contains('RBLX_URL_LAUNCHER_OPENED')) chrome.runtime.sendMessage(1, () => {}) // Send message to close the tab after execution
-}, 3000)
+let attempt = 0
+const interval = setInterval(() => {
+	attempt += 1
+	if (window.document.body.classList.contains('RBLX_URL_LAUNCHER_OPENED')) {
+		clearInterval(interval)
+		setTimeout(
+			() => chrome.runtime.sendMessage(1, () => {}) // Send message to close the tab after execution
+		, 2500)
+	}
+	if (attempt > 10) clearInterval(interval)
+}, 500)
