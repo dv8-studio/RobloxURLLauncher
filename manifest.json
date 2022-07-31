@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Roblox URL Launcher",
-  "version": "1.10",
+  "version": "1.11",
   "description": "Joins a game, specific server or opens studio basing on url parameters.",
   "permissions": [],
   "content_scripts": [
@@ -13,12 +13,16 @@
   ],
   "icons": {
     "16": "16.png",
-	"32": "32.png",
-	"48": "48.png",
+    "32": "32.png",
+    "48": "48.png",
     "128": "128.png"
   },
+  "host_permissions": [
+    "*://*.roblox.com/home*",
+    "*://*.roblox.com/games*",
+    "*://*.roblox.com/groups*"
+  ],
   "background": {
-    "scripts": ["background.js"],
-	"persistent": false
+    "service_worker": "background.js"
   }
 }
