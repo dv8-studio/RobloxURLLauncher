@@ -7,7 +7,7 @@ It is available on:
 - [Google Web store](https://chrome.google.com/webstore/detail/roblox-url-launcher/lcefjaknjehbafdeacjbjnfpfldjdlcc)
 - [Firefox Addons](https://addons.mozilla.org/addon/roblox-url-launcher/)
 
-The extension is [open source](https://github.com/Etheroit/RobloxURLLauncher).
+The extension is [open source](https://github.com/dv8-studio/RobloxURLLauncher).
 Its behavior is further explained in [Privacy Policy](https://github.com/dv8-studio/RobloxURLLauncher/blob/master/PRIVACY.md)
 
 This extension should work wherever Roblox launcher itself works (Windows, macOS). 
