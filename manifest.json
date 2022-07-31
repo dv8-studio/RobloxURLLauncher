@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Roblox URL Launcher",
-  "version": "1.11",
+  "version": "1.12",
   "description": "Joins a game, specific server or opens studio basing on url parameters.",
   "permissions": [],
   "content_scripts": [
@@ -22,6 +22,10 @@
     "*://*.roblox.com/games*",
     "*://*.roblox.com/groups*"
   ],
+  "web_accessible_resources": [{
+    "resources": ["script.js"],
+    "matches": ["<all_urls>"]
+  }],
   "background": {
     "service_worker": "background.js"
   }
