@@ -15,6 +15,9 @@ DOES NOT WORK ON CHROME OS AS LONG AS ROBLOX ITSELF DOESN'T SUPPORT IT
 
 Disclaimer: This extension was NOT made to bypass Roblox security. For instance, you won't be able to join a game you don't normally have access to or join a server of a player you can't follow.
 
+THE USE OF ROBLOX TRADEMARK IS FOR IDENTIFICATION AND REFERENCE PURPOSES ONLY AND DOES NOT IMPLY ANY ASSOCIATION WITH THE TRADEMARK HOLDER OF THEIR PRODUCT BRAND
+THE EXTENSION IS COMMUNITY-MADE (IT'S NOT MADE BY ROBLOX CORPORATION) 
+
 
 ## Possible usage (examples of links):
 - https://www.roblox.com/home?followUserId=1 - would make the client follow user ID 1 into the game the user is playing (only works if the player's privacy settings allow you to join them e.g. via the profile)
