@@ -1,5 +1,5 @@
 # Roblox URL Launcher
-Roblox URL Launcher extension makes it possible to launch Roblox client / studio by opening a link in a browser. Its purpose is to help you organize your PC shortcuts (by making it able to launch Roblox games by adding a link as browser or desktop shortcut).
+Roblox URL Launcher extension makes it possible to launch Roblox client / studio by opening a link in a browser without using any user credentials. Its purpose is to help you organize your PC shortcuts (by making it able to launch Roblox games by adding a link as browser or desktop shortcut).
 
 [Video showcasing extension](https://www.youtube.com/watch?v=AfmOCZu1uX0)
 
